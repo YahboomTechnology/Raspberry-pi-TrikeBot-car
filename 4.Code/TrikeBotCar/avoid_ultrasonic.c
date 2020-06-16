@@ -25,14 +25,13 @@ int Right_motor_back = 25;    //BIN1 connects to wiringPi port 25 of Raspberry p
 int Left_motor_pwm = 27;      //PWMA connects to wiringPi port 27 of Raspberry pi for control the speed of the left motor
 int Right_motor_pwm = 23;     //PWMA connects to wiringPi port 23 of Raspberry pi for control the speed of the right motor
 
-int buzzer = 10;              //buzzer is connected to  wiringPi port 10 of Raspberry pi
+int key = 10;              //buzzer is connected to  wiringPi port 10 of Raspberry pi
 
 int EchoPin = 30;             //EchoPin is connected to  wiringPi port 30 of Raspberry pi
 int TrigPin = 31;             //TrigPin is connected to  wiringPi port 31 of Raspberry pi
 
 int ServoPin = 4;             //Servo is connected to  wiringPi port 4 of Raspberry pi
 
-int key = 10;             //Key connects to wiringPi port 10 of Raspberry pi
 
 unsigned short int ServoPos_left = 110;    //left
 unsigned short int ServoPos_middle = 55;   //front
@@ -403,7 +402,7 @@ float Distance_test()
 * @retval        void
 * @par History   
 */
-void main()
+int main()
 {
   float distance;
   
@@ -451,7 +450,7 @@ void main()
    {
 	 servo_appointed_detection(ServoPos_right);
      spin_right(150,150);    
-	 delay (400); 
+	 delay (200); 
      brake (1);
      distance = Distance_test();    
      if (distance >= 50)
@@ -481,6 +480,6 @@ void main()
      }
    }
  }
- return;
+ return 0;
 }
 

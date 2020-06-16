@@ -486,7 +486,7 @@ void brake()
 void left(unsigned int LeftCarSpeedControl,unsigned int RightCarSpeedControl)
 {
   //Left motor stop
-  digitalWrite(Left_motor_go, LOW);     
+  digitalWrite(Left_motor_go, HIGH);     
   digitalWrite(Left_motor_back, LOW);  
   softPwmWrite(Left_motor_pwm, LeftCarSpeedControl);
 
@@ -540,7 +540,7 @@ void right(unsigned int LeftCarSpeedControl,unsigned int RightCarSpeedControl)
   softPwmWrite(Left_motor_pwm, LeftCarSpeedControl);
 
   //Right motor stop
-  digitalWrite(Right_motor_go, LOW);    
+  digitalWrite(Right_motor_go, HIGH);    
   digitalWrite(Right_motor_back, LOW);  
   softPwmWrite(Right_motor_pwm, RightCarSpeedControl);
 }
@@ -765,24 +765,27 @@ void Tracking_Mode()
     //LED_magenta
     color_led_pwm(255, 0, 255);		
 		servo_appointed_detection(g_RightPos);  
-		spin_right(150,150);           
-		delay(600);
+		spin_right(75,75);           
+		delay(1200);
+  servo_appointed_detection(g_MidPos);
   }
   else if ( LeftDistance >= RightDistance) 
   {
     //LED_blue
     color_led_pwm(0, 0, 255);
     servo_appointed_detection(g_LeftPos);   
-		spin_left(150,150);          
-		delay(200); 
+		spin_left(75,75);          
+		delay(500); 
+  servo_appointed_detection(g_MidPos);
   }
   else if (LeftDistance < RightDistance ) 
   {
      //LED_magenta
      color_led_pwm(255, 0, 255);
 	 servo_appointed_detection(g_RightPos);   
-	 spin_right(150,150);           
-	 delay(200);
+	 spin_right(75,75);           
+	 delay(500);
+  servo_appointed_detection(g_MidPos);
   }
 } 
 
@@ -871,12 +874,12 @@ void Ultrasonic_avoidMode()
 	distance = Distance_test();        
    if (distance > 50  )   
    {
-    run(250, 250);
+    run(125, 125);
     color_led_pwm(0, 255, 0);
   }
   else if ((distance >= 30 && distance <= 50))
   {
-    run(180, 180);
+    run(90, 90);
   }
   else if (  distance < 30  )
   {

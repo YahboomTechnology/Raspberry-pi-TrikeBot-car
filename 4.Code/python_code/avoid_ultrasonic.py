@@ -132,20 +132,48 @@ def servo_contrl(pos):
     pwm_servo.ChangeDutyCycle(2.5 + 10 * pos/180)
                     
 #Ultrasonic function
-def Distance_test():
+def Distance():
+    GPIO.output(TrigPin,GPIO.LOW)
+    time.sleep(0.000002)
     GPIO.output(TrigPin,GPIO.HIGH)
     time.sleep(0.000015)
     GPIO.output(TrigPin,GPIO.LOW)
+    t3 = time.time()
     while not GPIO.input(EchoPin):
-        pass
+        t4 = time.time()
+        if (t4 - t3) > 0.03 :
+            return -1
+
     t1 = time.time()
     while GPIO.input(EchoPin):
-        pass
+        t5 = time.time()
+        if(t5 - t1) > 0.03 :
+            return -1
+
     t2 = time.time()
-    print "distance is %d " % (((t2 - t1)* 340 / 2) * 100)
+#    print "distance is %d " % (((t2 - t1)* 340 / 2) * 100)
     time.sleep(0.01)
     return ((t2 - t1)* 340 / 2) * 100
+def Distance_test():
+    num = 0
+    ultrasonic = []
+    while num < 5:
+            distance = Distance()
+            while int(distance) == -1 :
+                distance = Distance()
+                print("Tdistance is %f"%(distance) )
+            while (int(distance) >= 500 or int(distance) == 0) :
+                distance = Distance()
+                print("Edistance is %f"%(distance) )
+            ultrasonic.append(distance)
+            num = num + 1
+            time.sleep(0.01)
+    print ultrasonic
+    distance = (ultrasonic[1] + ultrasonic[2] + ultrasonic[3])/3
+    print("distance is %f"%(distance) ) 
+    return distance
 	
+#Delay 2s	
 time.sleep(2)
 
 #The try/except statement is used to detect errors in the try block.
@@ -157,13 +185,13 @@ try:
         distance = Distance_test()
         if distance > 50:
             servo_contrl(g_MidPos)
-            run(40, 40)   
+            run(50, 50)   
         elif 30 <= distance <= 50:
             servo_contrl(g_MidPos)
             run(30, 30)     
         elif distance < 30:
             servo_contrl(g_RightPos)
-            spin_right(35, 35)
+            spin_right(45, 45)
             time.sleep(0.35)  
             brake()
             time.sleep(0.001)
@@ -173,7 +201,7 @@ try:
             run(40, 40)       
         elif distance < 30:
             servo_contrl(g_LeftPos)
-            spin_left(35, 35)
+            spin_left(45, 45)
             time.sleep(0.6)   
             brake()
             time.sleep(0.001)
@@ -183,7 +211,7 @@ try:
             run(40, 40)        
         elif distance < 30:
             servo_contrl(g_LeftPos)
-            spin_left(35, 35)   
+            spin_left(45, 45)   
             time.sleep(0.3)
             brake()
             time.sleep(0.001)
