@@ -23,8 +23,6 @@ This Raspberry Pi TrikeBot three-wheel robot is designed with a bionic shape. Fr
 
 [By on Yahboom website](https://category.yahboom.net/collections/rp-smart-robot/products/trikebot)
 
-# Download Method
-![](http://r.photo.store.qq.com/psb?/V12aIGgQ3D78BF/6NbFlbbjju4asMn6rUaXuYuVnQvQDL.1vx9pPOt0uYM!/r/dL8AAAAAAAAA)
 # Please Contact Us
 If you have any problem when using our robot after checking the tutorial, please contact us.
 ### Facebook:
@@ -32,15 +30,9 @@ https://www.facebook.com/yahboomcar/
 
 https://www.facebook.com/yahboomtech
 ### WhatsApp:
-+86 15818515042
-
 +86 18682378128
-### Skype:
-sales_79883
 
-Dolphin2448534184@gmail.com
 ### Technical support email: 
-market@yahboom.com
-### Amazon support email: 
-amazon@yahboom.com
+support@yahboom.com
+
 
