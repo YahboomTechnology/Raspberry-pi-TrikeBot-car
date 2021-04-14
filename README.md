@@ -19,8 +19,6 @@ This Raspberry Pi TrikeBot three-wheel robot is designed with a bionic shape. Fr
 
 * Supporting C language programming and Python programming with some tutorials for reference.
 # Required Best Buy Links
-[By on Amazon](https://www.amazon.com/Yahboom-Raspberry-Programmable-Electronic-Tutorial%EF%BC%88without/dp/B07G75NDKX/ref=sr_1_41?m=A1N1A77RUX51FT&marketplaceID=ATVPDKIKX0DER&qid=1567505421&s=merchant-items&sr=1-41)
-
 [By on Yahboom website](https://category.yahboom.net/collections/rp-smart-robot/products/trikebot)
 
 # Please Contact Us
